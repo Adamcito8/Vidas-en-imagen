@@ -1,0 +1,285 @@
+/* Contenedor de la galería */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* columnas flexibles */
+  gap: 15px;
+  margin: 20px;
+}
+
+/* Cada imagen */
+.gallery img {
+  width: 100%;
+  height: 200px;       /* altura fija para que todas queden iguales */
+  object-fit: cover;   /* 🔑 recorta sin deformar */
+  border-radius: 10px; /* esquinas redondeadas opcionales */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* sombra opcional */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.gallery img:hover {
+  transform: scale(1.05); /* se agranda un poquito */
+}
+
+/* -----------------------
+   VARIABLES DE COLOR7
+-------------------------- */
+:root {
+  --bg-cream: #FBF6EE;       /* fondo cremita */
+  --frame-coffee: #6f4f37;   /* marco café */
+  --accent-coffee: #a47148;  /* botones y detalles */
+  --text-dark: #3a2c23;      /* texto oscuro */
+  --muted: #7b6a60;
+}
+
+/* -----------------------
+   RESETEO GENERAL
+-------------------------- */
+* { box-sizing: border-box; margin:0; padding:0; }
+html,body { height:100%; }
+body {
+  font-family: "Playfair Display", serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+/* -----------------------
+   CONTENEDOR CON MARCO (aplica a todas las páginas)
+-------------------------- */
+.frame {
+  width: 100%;
+  max-width: 1100px;
+  background: #fffefc;
+  border: 6px solid var(--frame-coffee);
+  border-radius: 12px;
+  padding: 26px;
+  box-shadow: 0 10px 30px rgba(27,18,14,0.06);
+}
+
+/* -----------------------
+   CABECERA / NAVEGACIÓN
+-------------------------- */
+.header-top {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 36px;
+  color: var(--frame-coffee);
+  margin:0;
+}
+nav.main-nav {
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+nav.main-nav a {
+  padding: 8px 12px;
+  border-radius:8px;
+  border: 2px solid var(--frame-coffee);
+  color: var(--frame-coffee);
+  text-decoration:none;
+  font-weight:700;
+}
+nav.main-nav a:hover{
+  background: var(--accent-coffee);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* -----------------------
+   HERO (index)
+-------------------------- */
+.hero {
+  text-align:center;
+  padding: 28px 10px;
+  display:grid;
+  gap:14px;
+  align-items:center;
+}
+.hero h2 {
+  font-size: 30px;
+  margin:0;
+  color: var(--frame-coffee);
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  height: 200px;           /* Mantiene la altura fija como tu cuadro anterior */
+}
+
+.logo {
+  max-height: 100%;        /* La imagen no sobrepasa el contenedor */
+  max-width: 100%;         /* Se ajusta al ancho */
+  object-fit: contain;     /* Ajusta sin recortar ni deformar */
+}
+.slogan {
+  font-family: "Dancing Script", cursive;
+  font-size:22px;
+  color: var(--frame-coffee);
+}
+
+/* -----------------------
+   BOTONES (rectángulos con borde)
+-------------------------- */
+.cta-row {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.btn {
+  display:inline-block;
+  padding:10px 16px;
+  min-width:140px;
+  text-align:center;
+  border-radius:10px;
+  border:2px solid var(--frame-coffee);
+  background: var(--accent-coffee);
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+}
+.btn.secondary {
+  background: transparent;
+  color: var(--frame-coffee);
+}
+
+/* -----------------------
+   REVEAL / ANIMACIONES
+-------------------------- */
+.reveal { opacity:0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.active { opacity:1; transform: translateY(0); }
+
+/* -----------------------
+   SERVICIOS
+-------------------------- */
+.services {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:16px;
+  padding:14px 0;
+}
+.services section {
+  border:2px solid var(--accent-coffee);
+  border-radius:10px;
+  padding:12px;
+  background:#fff8f4;
+}
+.services h2 {
+  color:var(--frame-coffee);
+  margin-bottom:8px;
+  font-size:18px;
+}
+.services p { color:var(--text-dark); line-height:1.5; }
+
+/* -----------------------
+   GALERÍA
+-------------------------- */
+.gallery {
+  padding:12px 0;
+  display:grid;
+  gap:20px;
+}
+.gallery section h2 {
+  color:var(--frame-coffee);
+  margin-bottom:8px;
+}
+.gallery-row {
+  display:grid;
+  gap:12px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.gallery-row img {
+  width:100%;
+  display:block;
+  border-radius:12px;
+  cursor:pointer;
+  transition: transform .25s ease;
+}
+.gallery-row img:hover { transform: scale(1.03); }
+
+/* LIGHTBOX (modal) */
+.lightbox {
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.75);
+  z-index:999;
+  padding:20px;
+}
+.lightbox img { max-width:100%; max-height:85vh; border-radius:10px; }
+.lightbox .close-btn {
+  position:absolute; top:20px; right:20px;
+  padding:8px 10px; border-radius:8px; border:none;
+  background:#fff; color:#111; font-weight:700; cursor:pointer;
+}
+
+/* -----------------------
+   FORMULARIO
+-------------------------- */
+form { display:flex; flex-direction:column; gap:10px; padding:6px 0; }
+form label { font-weight:700; color:var(--frame-coffee); }
+form input, form select, form textarea {
+  padding:8px; border-radius:8px; border:2px solid var(--accent-coffee);
+}
+form button[type="submit"] {
+  margin-top:6px; padding:10px; border-radius:8px; border:none;
+  background:var(--accent-coffee); color:#fff; font-weight:700;
+}
+
+/* -----------------------
+   CONTACTO
+-------------------------- */
+.team {
+  display:flex; gap:12px; flex-wrap:wrap; margin-bottom:10px;
+}
+.team .member {
+  border-radius:10px; padding:10px; background:#fff8f4; border:2px solid var(--accent-coffee);
+  flex:1 1 220px;
+}
+.contact-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -----------------------
+   PIE DE PÁGINA
+-------------------------- */
+.footer-note { text-align:center; color:var(--muted); margin-top:12px; }
+
+/* -----------------------
+   RESPONSIVE
+-------------------------- */
+@media (max-width: 900px) {
+  .services { grid-template-columns: 1fr; }
+  .gallery-row { grid-template-columns: repeat(2, 1fr); }
+  .brand h1 { font-size: 30px; }
+  nav.main-nav { margin-left:0; justify-content:center; width:100%; }
+}
+@media (max-width: 480px) {
+  .gallery-row { grid-template-columns: 1fr; }
+  .logo-placeholder { width:120px; height:120px; }
+  .brand h1 { font-size: 26px; }
+  .frame { padding:18px; }
+}

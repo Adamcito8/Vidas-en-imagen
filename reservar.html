@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vidas en Imagen — Reservar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estiilos.css">
+</head>
+<body>
+  <div class="frame">
+    <div class="header-top">
+      <div class="brand"><h1>Vidas en Imagen</h1></div>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="galeria.html">Galería</a>
+        <a href="reservar.html">Reservar</a>
+        <a href="contactos.html">Contacto</a>
+      </nav>
+    </div>
+
+    <main>
+      <h2 class="reveal" style="color:var(--frame-coffee); margin:10px 0">Reservar tu sesión</h2>
+      <p class="reveal">Elige tu servicio, selecciona una fecha y hora, y nos pondremos en contacto contigo para confirmar.</p>
+
+      <form id="reserveForm" class="reveal" style="margin-top:12px;">
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" required placeholder="Tu nombre">
+
+        <label>Correo electrónico</label>
+        <input type="email" name="email" required placeholder="correo@ejemplo.com">
+
+        <label>Teléfono / WhatsApp</label>
+        <input type="tel" name="telefono" placeholder="(664) 123 4567">
+
+        <label>Servicio</label>
+        <select name="servicio" required>
+          <option value="">-- Selecciona --</option>
+          <option>sesión de retrato individual</option>
+          <option>Boda completa</option>
+          <option>Evento social</option>
+          <option>Sesión Familiar</option>
+          <option>Sesión Cosplay</option>
+          <option>Sesión XV años</option>
+        </select>
+
+        <label>Fecha</label>
+        <input type="date" name="fecha" required>
+
+        <label>Hora</label>
+        <input type="time" name="hora">
+
+        <label>Mensaje adicional</label>
+        <textarea name="mensaje" rows="3" placeholder="Detalles, locación, etc."></textarea>
+
+        <button type="submit">Enviar reserva</button>
+
+        <small style="display:block; margin-top:8px; color:var(--muted)">
+          Política: reservaciones con mínimo 7 días de anticipación. Para bodas/eventos grandes se solicita anticipo del 30%. La confirmación se envía al correo en máximo 48 hrs.
+        </small>
+      </form>
+    </main>
+
+    <div class="footer-note">Nos pondremos en contacto por correo o WhatsApp para confirmar tu fecha.</div>
+  </div>
+
+  <script src="eljava.js"></script>
+</body>
+</html>
